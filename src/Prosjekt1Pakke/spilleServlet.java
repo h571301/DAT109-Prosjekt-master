@@ -36,8 +36,9 @@ public class spilleServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		Spiller spiller = new Spiller();
-		System.out.println(request.getAttribute("dice-value"));
+		System.out.println(request.getParameter("dice-value"));
 		spiller.oppdaterScore(request, response);
+		System.out.println("Test");
 		
 		spiller.printScore();
 		session.setAttribute("poeng", spiller.getPoeng());
