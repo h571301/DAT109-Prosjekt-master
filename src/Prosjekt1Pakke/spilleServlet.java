@@ -35,16 +35,16 @@ public class spilleServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		
-		Spiller spiller = new Spiller();
-		System.out.println(request.getParameter("dice-value"));
-		spiller.oppdaterScore(request, response);
-		System.out.println("Test");
-		
-		spiller.printScore();
-		session.setAttribute("poeng", spiller.getPoeng());
+//		Spiller spiller = new Spiller();
+//		System.out.println(request.getParameter("dice-value"));
+//		spiller.oppdaterScore(request, response);
+//		
+//		spiller.printScore();
+//		session.setAttribute("poeng", spiller.getPoeng());
 		//response.sendRedirect("spillYahtzee");
-		
+		System.out.println("Verdiene på terningene er: " + request.getParameter("dice-value"));
 		request.getRequestDispatcher("WEB-INF/index.html").forward(request, response);
+		
 
 		
 		}
