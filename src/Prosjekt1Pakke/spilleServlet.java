@@ -45,9 +45,7 @@ public class spilleServlet extends HttpServlet {
 		
 		request.getRequestDispatcher("WEB-INF/index.html").forward(request, response);
 
-		
 	
-		
 		}
 	
 
