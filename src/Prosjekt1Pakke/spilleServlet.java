@@ -42,6 +42,7 @@ public class spilleServlet extends HttpServlet {
 //		spiller.printScore();
 //		session.setAttribute("poeng", spiller.getPoeng());
 		//response.sendRedirect("spillYahtzee");
+		/// CAT 
 		System.out.println("Verdiene på terningene er: " + request.getParameter("dice-value"));
 		request.getRequestDispatcher("WEB-INF/index.html").forward(request, response);
 		
