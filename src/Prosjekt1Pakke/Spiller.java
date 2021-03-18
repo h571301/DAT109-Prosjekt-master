@@ -15,13 +15,19 @@ public class Spiller {
 	private int spillerID;
 	private String navn;
 
-	@ManyToOne
-	@JoinColumn(name = "spillID", referencedColumnName = "spillID")
-	private Spill spill;
+//	@ManyToOne
+//	@JoinColumn(name = "spillID", referencedColumnName = "spillID")
+//	private Spill spill;
 
 	@OneToOne
 	@JoinColumn(name = "poengID", referencedColumnName = "poengID")
 	private Poeng poeng;
+
+
+public Spiller(String navn) {
+	this.navn = navn;
+	this.poeng = new Poeng();
+}
 
 	public int getSpillerID() {
 		return spillerID;
@@ -97,7 +103,5 @@ public class Spiller {
 		poeng.setSum();
 		poeng.setTotal();
 		
-		printScore();
 	}
 }
-

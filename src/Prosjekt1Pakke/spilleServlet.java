@@ -35,18 +35,17 @@ public class spilleServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		
-//		Spiller spiller = new Spiller();
+		//La in vilkårlig navn for å teste
+//		 dao.lagreNySpiller("Mons");
+//		 Spiller spiller = dao.hentBestemtSpiller(1);
 //		System.out.println(request.getParameter("dice-value"));
 //		spiller.oppdaterScore(request, response);
-//		
 //		spiller.printScore();
-//		session.setAttribute("poeng", spiller.getPoeng());
-		//response.sendRedirect("spillYahtzee");
-		/// CAT 
+		
+	
 		System.out.println("Verdiene på terningene er: " + request.getParameter("dice-value"));
 		request.getRequestDispatcher("WEB-INF/index.html").forward(request, response);
 		
-		System.out.println("Test");
 		
 		}
 	

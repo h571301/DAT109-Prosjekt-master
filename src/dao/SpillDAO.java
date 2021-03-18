@@ -2,11 +2,12 @@ package dao;
 
 import java.util.List;
 
-import java.text.ParseException;
-
 import javax.ejb.Stateless;
-import javax.persistence.*;
-import Prosjekt1Pakke.*;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import Prosjekt1Pakke.Spill;
+import Prosjekt1Pakke.Spiller;
 
 @Stateless
 public class SpillDAO {
@@ -24,9 +25,6 @@ public class SpillDAO {
 		}
 		
 		public void lagreNySpiller(String navn) {
-			Spiller nySpiller = new Spiller();
-			nySpiller.setNavn(navn);
-			em.persist(nySpiller);
+			em.persist(new Spiller(navn));
 		}
 }
-		

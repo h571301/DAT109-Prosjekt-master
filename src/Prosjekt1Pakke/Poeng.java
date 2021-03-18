@@ -1,19 +1,23 @@
+  
 package Prosjekt1Pakke;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import java.text.ParseException;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table (schema = "YatzyDB", name = "poeng")
 public class Poeng {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long poengID; 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int poengID; 
 	
 	@OneToOne(mappedBy = "poeng")
 	private Spiller spiller;
@@ -37,7 +41,27 @@ public class Poeng {
 	private int yatzy; 
 	private int total;
 	
-	
+	public Poeng() {
+		this.poengID = 0;
+		this.enere = 0;
+		this.toere = 0;
+		this.trere = 0;
+		this.firere = 0;
+		this.femmere = 0;
+		this.seksere = 0;
+		this.sum = 0;
+		this.bonus = 0;
+		this.etPar = 0;
+		this.toPar = 0;
+		this.treLike = 0;
+		this.fireLike = 0;
+		this.litenStraight = 0;
+		this.storStraight = 0;
+		this.hus = 0;
+		this.sjanse = 0;
+		this.yatzy = 0;
+		this.total = 0;
+	}
 	public void setEnere(int enere) {
 		this.enere = enere;
 	}
