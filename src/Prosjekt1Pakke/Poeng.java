@@ -116,6 +116,69 @@ public class Poeng {
 		this.total = sum + bonus + etPar + toPar + treLike + fireLike + litenStraight + storStraight + hus + sjanse + yatzy;
 	}
 	
+	
+	
+	public int getPoengID() {
+		return poengID;
+	}
+	public Spiller getSpiller() {
+		return spiller;
+	}
+	public int getEnere() {
+		return enere;
+	}
+	public int getToere() {
+		return toere;
+	}
+	public int getTrere() {
+		return trere;
+	}
+	public int getFirere() {
+		return firere;
+	}
+	public int getFemmere() {
+		return femmere;
+	}
+	public int getSeksere() {
+		return seksere;
+	}
+	public int getSum() {
+		return sum;
+	}
+	public int getBonus() {
+		return bonus;
+	}
+	public int getEtPar() {
+		return etPar;
+	}
+	public int getToPar() {
+		return toPar;
+	}
+	public int getTreLike() {
+		return treLike;
+	}
+	public int getFireLike() {
+		return fireLike;
+	}
+	public int getLitenStraight() {
+		return litenStraight;
+	}
+	public int getStorStraight() {
+		return storStraight;
+	}
+	public int getHus() {
+		return hus;
+	}
+	public int getSjanse() {
+		return sjanse;
+	}
+	public int getYatzy() {
+		return yatzy;
+	}
+	public int getTotal() {
+		return total;
+	}
+	
 	public List<Integer> lagrePoengSomListe() {
 		List<Integer> poengListe = new ArrayList<Integer>();
 		poengListe.add(enere);
@@ -138,6 +201,7 @@ public class Poeng {
 		poengListe.add(total);
 		return poengListe;
 	}
+	
 	@Override
 	public String toString() {
 		return "Poeng [poengID=" + poengID + ", spiller=" + spiller + ", enere=" + enere + ", toere=" + toere
@@ -146,7 +210,4 @@ public class Poeng {
 				+ ", fireLike=" + fireLike + ", litenStraight=" + litenStraight + ", storStraight=" + storStraight
 				+ ", hus=" + hus + ", sjanse=" + sjanse + ", yatzy=" + yatzy + ", total=" + total + "]";
 	}
-	
-	
-	
 }
