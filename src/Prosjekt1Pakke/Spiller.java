@@ -27,6 +27,7 @@ public class Spiller {
 public Spiller(String navn) {
 	this.navn = navn;
 	this.poeng = new Poeng();
+	this.spillerID = (int) Math.floor(Math.random()*100)+1;
 }
 
 	public int getSpillerID() {
@@ -100,8 +101,7 @@ public Spiller(String navn) {
 	
 		}
 		
-		poeng.setSum();
-		poeng.setTotal();
+		
 		
 	}
 }

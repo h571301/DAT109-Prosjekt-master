@@ -42,25 +42,25 @@ public class Poeng {
 	private int total;
 	
 	public Poeng() {
-		this.poengID = 0;
-		this.enere = 0;
-		this.toere = 0;
-		this.trere = 0;
-		this.firere = 0;
-		this.femmere = 0;
-		this.seksere = 0;
-		this.sum = 0;
-		this.bonus = 0;
-		this.etPar = 0;
-		this.toPar = 0;
-		this.treLike = 0;
-		this.fireLike = 0;
-		this.litenStraight = 0;
-		this.storStraight = 0;
-		this.hus = 0;
-		this.sjanse = 0;
-		this.yatzy = 0;
-		this.total = 0;
+		this.poengID = -1;
+		this.enere = -1;
+		this.toere = -1;
+		this.trere = -1;
+		this.firere = -1;
+		this.femmere = -1;
+		this.seksere = -1;
+		this.sum = -1;
+		this.bonus = -1;
+		this.etPar = -1;
+		this.toPar = -1;
+		this.treLike = -1;
+		this.fireLike = -1;
+		this.litenStraight = -1;
+		this.storStraight = -1;
+		this.hus = -1;
+		this.sjanse = -1;
+		this.yatzy = -1;
+		this.total = -1;
 	}
 	public void setEnere(int enere) {
 		this.enere = enere;
@@ -117,6 +117,80 @@ public class Poeng {
 		this.total = sum + bonus + etPar + toPar + treLike + fireLike + litenStraight + storStraight + hus + sjanse + yatzy;
 	}
 	
+	
+	
+	public int getPoengID() {
+		return poengID;
+	}
+	public void setPoengID(int poengID) {
+		this.poengID = poengID;
+	}
+	public Spiller getSpiller() {
+		return spiller;
+	}
+	public void setSpiller(Spiller spiller) {
+		this.spiller = spiller;
+	}
+	public int getSum() {
+		return sum;
+	}
+	public void setSum(int sum) {
+		this.sum = sum;
+	}
+	public int getTotal() {
+		return total;
+	}
+	public void setTotal(int total) {
+		this.total = total;
+	}
+	public int getEnere() {
+		return enere;
+	}
+	public int getToere() {
+		return toere;
+	}
+	public int getTrere() {
+		return trere;
+	}
+	public int getFirere() {
+		return firere;
+	}
+	public int getFemmere() {
+		return femmere;
+	}
+	public int getSeksere() {
+		return seksere;
+	}
+	public int getBonus() {
+		return bonus;
+	}
+	public int getEtPar() {
+		return etPar;
+	}
+	public int getToPar() {
+		return toPar;
+	}
+	public int getTreLike() {
+		return treLike;
+	}
+	public int getFireLike() {
+		return fireLike;
+	}
+	public int getLitenStraight() {
+		return litenStraight;
+	}
+	public int getStorStraight() {
+		return storStraight;
+	}
+	public int getHus() {
+		return hus;
+	}
+	public int getSjanse() {
+		return sjanse;
+	}
+	public int getYatzy() {
+		return yatzy;
+	}
 	public List<Integer> lagrePoengSomListe() {
 		List<Integer> poengListe = new ArrayList<Integer>();
 		poengListe.add(enere);

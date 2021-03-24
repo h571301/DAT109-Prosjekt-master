@@ -1,6 +1,8 @@
 package Prosjekt1Pakke;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -21,6 +23,7 @@ import dao.SpillDAO;
 public class spilleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	
 
 	
 	@EJB
@@ -28,7 +31,25 @@ public class spilleServlet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("WEB-INF/index.html").forward(request, response);
+		
+		Spiller s1 = new Spiller("Ole");
+		Spiller s2 = new Spiller("Kari");
+		Spiller s3 = new Spiller("Fredrik");
+		
+		
+		List<Spiller> spillere = new ArrayList<Spiller>();
+		spillere.add(s1);
+		spillere.add(s2);
+		spillere.add(s3);
+		HttpSession session = request.getSession(true);
+		session.setAttribute("spillere", spillere);
+		session.setAttribute("rundeID", 6);
+		session.setAttribute("spillerID", s3.getSpillerID() );
+		
+		System.out.println("spillerID: " + s2.getSpillerID());
+		
+		
+		request.getRequestDispatcher("WEB-INF/index.jsp").forward(request, response);
 	}
 
 
@@ -44,7 +65,8 @@ public class spilleServlet extends HttpServlet {
 		
 	
 		System.out.println("Verdiene på terningene er: " + request.getParameter("dice-value"));
-		request.getRequestDispatcher("WEB-INF/index.html").forward(request, response);
+		System.out.println("Id er: " + request.getParameter("dice-id"));
+		request.getRequestDispatcher("WEB-INF/index.jsp").forward(request, response);
 		
 		
 		}
