@@ -1,8 +1,9 @@
-package Prosjekt1Pakke;
+package klasser;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,10 +16,9 @@ import javax.persistence.Table;
 public class Poeng {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int poengID; 
 	
-	@OneToOne(mappedBy = "poeng")
+	@OneToOne(mappedBy = "poeng", cascade = CascadeType.PERSIST)
 	private Spiller spiller;
 	
 	private int enere; 
@@ -27,7 +27,7 @@ public class Poeng {
 	private int firere; 
 	private int femmere; 
 	private int seksere; 
-	private int sum; 
+	private int summ; //Denne er skrevet slik fordi sum er et låst ord SQL
 	private int bonus; 
 	private int etPar; 
 	private int toPar; 
@@ -41,25 +41,28 @@ public class Poeng {
 	private int total;
 	
 	public Poeng() {
-		this.poengID = 0;
-		this.enere = 0;
-		this.toere = 0;
-		this.trere = 0;
-		this.firere = 0;
-		this.femmere = 0;
-		this.seksere = 0;
-		this.sum = 0;
-		this.bonus = 0;
-		this.etPar = 0;
-		this.toPar = 0;
-		this.treLike = 0;
-		this.fireLike = 0;
-		this.litenStraight = 0;
-		this.storStraight = 0;
-		this.hus = 0;
-		this.sjanse = 0;
-		this.yatzy = 0;
-		this.total = 0;
+	}
+	
+	public Poeng(int poengId) {
+		this.poengID = poengId;
+		this.enere = -1;
+		this.toere = -1;
+		this.trere = -1;
+		this.firere = -1;
+		this.femmere = -1;
+		this.seksere = -1;
+		this.summ = -1;
+		this.bonus = -1;
+		this.etPar = -1;
+		this.toPar = -1;
+		this.treLike = -1;
+		this.fireLike = -1;
+		this.litenStraight = -1;
+		this.storStraight = -1;
+		this.hus = -1;
+		this.sjanse = -1;
+		this.yatzy = -1;
+		this.total = -1;
 	}
 	public void setEnere(int enere) {
 		this.enere = enere;
@@ -80,7 +83,7 @@ public class Poeng {
 		this.seksere = seksere;
 	}
 	public void setSum() {
-		this.sum = enere + toere + trere + firere + femmere + seksere;
+		this.summ = enere + toere + trere + firere + femmere + seksere;
 	}
 	public void setBonus(int bonus) {
 		this.bonus = bonus;
@@ -113,9 +116,12 @@ public class Poeng {
 		this.yatzy = yatzy;
 	}
 	public void setTotal() {
-		this.total = sum + bonus + etPar + toPar + treLike + fireLike + litenStraight + storStraight + hus + sjanse + yatzy;
+		this.total = summ + bonus + etPar + toPar + treLike + fireLike + litenStraight + storStraight + hus + sjanse + yatzy;
 	}
-	
+	public void oppdaterSummer() {
+		this.summ = enere + toere + trere + firere + femmere + seksere;
+		this.total = summ + bonus + etPar + toPar + treLike + fireLike + litenStraight + storStraight + hus + sjanse + yatzy;
+	}
 	
 	
 	public int getPoengID() {
@@ -143,7 +149,7 @@ public class Poeng {
 		return seksere;
 	}
 	public int getSum() {
-		return sum;
+		return summ;
 	}
 	public int getBonus() {
 		return bonus;
@@ -187,7 +193,7 @@ public class Poeng {
 		poengListe.add(firere);
 		poengListe.add(femmere);
 		poengListe.add(seksere);
-		poengListe.add(sum);
+		poengListe.add(summ);
 		poengListe.add(bonus);
 		poengListe.add(etPar);
 		poengListe.add(toPar);
@@ -206,7 +212,7 @@ public class Poeng {
 	public String toString() {
 		return "Poeng [poengID=" + poengID + ", spiller=" + spiller + ", enere=" + enere + ", toere=" + toere
 				+ ", trere=" + trere + ", firere=" + firere + ", femmere=" + femmere + ", seksere=" + seksere + ", sum="
-				+ sum + ", bonus=" + bonus + ", etPar=" + etPar + ", toPar=" + toPar + ", treLike=" + treLike
+				+ summ + ", bonus=" + bonus + ", etPar=" + etPar + ", toPar=" + toPar + ", treLike=" + treLike
 				+ ", fireLike=" + fireLike + ", litenStraight=" + litenStraight + ", storStraight=" + storStraight
 				+ ", hus=" + hus + ", sjanse=" + sjanse + ", yatzy=" + yatzy + ", total=" + total + "]";
 	}

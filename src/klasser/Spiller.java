@@ -1,8 +1,13 @@
-package Prosjekt1Pakke;
+package klasser;
 
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,23 +16,25 @@ import javax.servlet.http.HttpServletResponse;
 public class Spiller {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int spillerID;
 	private String navn;
 
-//	@ManyToOne
-//	@JoinColumn(name = "spillID", referencedColumnName = "spillID")
-//	private Spill spill;
+	@ManyToOne
+	@JoinColumn(name = "spillID", referencedColumnName = "spillID")
+	private Spill spill;
 
 	@OneToOne
 	@JoinColumn(name = "poengID", referencedColumnName = "poengID")
 	private Poeng poeng;
 
-
-public Spiller(String navn) {
-	this.navn = navn;
-	this.poeng = new Poeng();
-}
+	public Spiller() {}
+	
+	public Spiller(int id, String navn, Spill spill,Poeng poeng) {
+		this.spillerID = id;
+		this.navn = navn;
+		this.spill = spill;
+		this.poeng = poeng;
+	}
 
 	public int getSpillerID() {
 		return spillerID;
@@ -44,6 +51,20 @@ public Spiller(String navn) {
 	public Poeng getPoeng() {
 		return poeng;
 	}
+	
+	
+	
+	public Spill getSpill() {
+		return spill;
+	}
+
+	public void setSpill(Spill spill) {
+		this.spill = spill;
+	}
+
+	public void setPoeng(Poeng poeng) {
+		this.poeng = poeng;
+	}
 
 	public void printScore() {
 		System.out.println(poeng.toString());
@@ -53,17 +74,16 @@ public Spiller(String navn) {
 	public void oppdaterScore(HttpServletRequest request, HttpServletResponse response) {
 
 		Integer x = 0;
-		
-		
+
 		List<Integer> poengliste = poeng.lagrePoengSomListe();
-		
-		for(Integer i : poengliste) {
-			if(i != null) break;
+
+		for (Integer i : poengliste) {
+			if (i != null)
+				break;
 			x++;
-			
+
 		}
-		
-		
+
 		if (request.getParameter("dice-value") != null) {
 			if (x == 1)
 				poeng.setEnere(Integer.parseInt(request.getParameter("dice-value")));
@@ -77,33 +97,32 @@ public Spiller(String navn) {
 				poeng.setFemmere(Integer.parseInt(request.getParameter("dice-value")));
 			else if (x == 6)
 				poeng.setSeksere(Integer.parseInt(request.getParameter("dice-value")));
-			else if(x == 8)
+			else if (x == 8)
 				poeng.setBonus(Integer.parseInt(request.getParameter("dice-value")));
-			else if(x == 9)
+			else if (x == 9)
 				poeng.setEtPar(Integer.parseInt(request.getParameter("dice-value")));
-			else if(x == 10)
+			else if (x == 10)
 				poeng.setToPar(Integer.parseInt(request.getParameter("dice-value")));
-			else if(x == 11)
+			else if (x == 11)
 				poeng.setTreLike(Integer.parseInt(request.getParameter("dice-value")));
-			else if(x == 12)
+			else if (x == 12)
 				poeng.setFireLike(Integer.parseInt(request.getParameter("dice-value")));
-			else if(x == 13)
+			else if (x == 13)
 				poeng.setHus(Integer.parseInt(request.getParameter("dice-value")));
-			else if(x == 14)
+			else if (x == 14)
 				poeng.setLitenStraight(Integer.parseInt(request.getParameter("dice-value")));
-			else if(x == 15)
+			else if (x == 15)
 				poeng.setStorStraight(Integer.parseInt(request.getParameter("dice-value")));
-			else if(x == 16)
+			else if (x == 16)
 				poeng.setSjanse(Integer.parseInt(request.getParameter("dice-value")));
-			else if(x == 17) 
+			else if (x == 17)
 				poeng.setYatzy(Integer.parseInt(request.getParameter("dice-value")));
-	
+
 		}
-		
+
 		poeng.setSum();
 		poeng.setTotal();
-		
+
 		printScore();
 	}
 }
-

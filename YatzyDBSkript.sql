@@ -8,8 +8,6 @@ CREATE TABLE Spill
 	PRIMARY KEY (spillID)
 );
 
-
-
 CREATE TABLE Poeng 
 (
 	poengID int,
@@ -37,8 +35,11 @@ CREATE TABLE Poeng
 CREATE TABLE Spiller 
 (
 	spillerID int,
-	navn VARCHAR(40)
-	PRIMARY KEY (spillerID)
-	FOREIGN KEY (spillID) REFERENCES Spill (spillID)
-	FOREIGN KEY (poengID) REFERENCES Poeng (poengID)
+	spillID int,
+	poengID int,
+	navn VARCHAR(40),
+	PRIMARY KEY (spillerID),
+	FOREIGN KEY (poengID) REFERENCES Poeng (poengID) ON UPDATE CASCADE,
+	FOREIGN KEY (spillID) REFERENCES Spill (spillID) ON UPDATE CASCADE
 );
+

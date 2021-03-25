@@ -7,9 +7,9 @@
 		transaction-type="JTA">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<jta-data-source>DAT108LocalDS</jta-data-source>
-		<class>Prosjekt1Pakke.Poeng</class>
-		<class>Prosjekt1Pakke.Spiller</class>
-		<class>Prosjekt1Pakke.Spill</class>
+		<class>klasser.Poeng</class>
+		<class>klasser.Spiller</class>
+		<class>klasser.Spill</class>
 		<properties>
 			<property name="eclipselink.weaving" value="false" />
 		</properties>
