@@ -73,17 +73,18 @@ public class Spiller {
 
 	public void oppdaterScore(HttpServletRequest request, HttpServletResponse response) {
 
-		Integer x = 0;
+		Integer x = 1;
 
 		List<Integer> poengliste = poeng.lagrePoengSomListe();
 
 		for (Integer i : poengliste) {
-			if (i != null)
+			
+			if (i == -1)
 				break;
 			x++;
 
 		}
-
+		System.out.println("X verdi :" + " " + x);
 		if (request.getParameter("dice-value") != null) {
 			if (x == 1)
 				poeng.setEnere(Integer.parseInt(request.getParameter("dice-value")));
@@ -123,6 +124,11 @@ public class Spiller {
 		poeng.setSum();
 		poeng.setTotal();
 
-		printScore();
+//		printScore();
+	}
+
+	@Override
+	public String toString() {
+		return "Spiller [spillerID=" + spillerID + ", navn=" + navn + ", spill=" + spill + ", poeng=" + poeng + "]";
 	}
 }

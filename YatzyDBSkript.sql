@@ -4,7 +4,8 @@ SET search_path = YatzyDB;
 
 CREATE TABLE Spill 
 (
-	spillID int, 
+	spillID int,
+	navn VARCHAR(40),
 	PRIMARY KEY (spillID)
 );
 

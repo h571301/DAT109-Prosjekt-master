@@ -18,11 +18,19 @@ public class Poeng {
 	@Id
 	private int poengID; 
 	
+	public void setPoengID(int poengID) {
+		this.poengID = poengID;
+	}
+
 	@OneToOne(mappedBy = "poeng", cascade = CascadeType.PERSIST)
 	private Spiller spiller;
 	
 	private int enere; 
 	private int toere; 
+	public void setSpiller(Spiller spiller) {
+		this.spiller = spiller;
+	}
+
 	private int trere; 
 	private int firere; 
 	private int femmere; 
@@ -208,12 +216,12 @@ public class Poeng {
 		return poengListe;
 	}
 	
-	@Override
-	public String toString() {
-		return "Poeng [poengID=" + poengID + ", spiller=" + spiller + ", enere=" + enere + ", toere=" + toere
-				+ ", trere=" + trere + ", firere=" + firere + ", femmere=" + femmere + ", seksere=" + seksere + ", sum="
-				+ summ + ", bonus=" + bonus + ", etPar=" + etPar + ", toPar=" + toPar + ", treLike=" + treLike
-				+ ", fireLike=" + fireLike + ", litenStraight=" + litenStraight + ", storStraight=" + storStraight
-				+ ", hus=" + hus + ", sjanse=" + sjanse + ", yatzy=" + yatzy + ", total=" + total + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Poeng [poengID=" + poengID + ", spiller=" + spiller + ", enere=" + enere + ", toere=" + toere
+//				+ ", trere=" + trere + ", firere=" + firere + ", femmere=" + femmere + ", seksere=" + seksere + ", sum="
+//				+ summ + ", bonus=" + bonus + ", etPar=" + etPar + ", toPar=" + toPar + ", treLike=" + treLike
+//				+ ", fireLike=" + fireLike + ", litenStraight=" + litenStraight + ", storStraight=" + storStraight
+//				+ ", hus=" + hus + ", sjanse=" + sjanse + ", yatzy=" + yatzy + ", total=" + total + "]";
+//	}
 }

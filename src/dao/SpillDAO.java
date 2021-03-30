@@ -25,8 +25,8 @@ public class SpillDAO {
 			return em.find(Spill.class, spillID).getSpillere();
 		}
 		
-		public Spiller hentBestemtSpiller(int spillerID) {
-			return em.find(Spiller.class, spillerID);
+		public Spiller hentBestemtSpiller(Object object) {
+			return em.find(Spiller.class, object);
 		}
 		
 		public void lagreNySpiller(Spiller spiller) {
@@ -40,6 +40,9 @@ public class SpillDAO {
 		public void lagreNyPoengListe(Poeng poeng) {
 			em.persist(poeng);
 		}
+		public void oppdaterNyPoengListe(Poeng poeng) {
+			em.merge(poeng);
+		}
 				
 		public void oppdaterSpill(Spill spill) {
 			
@@ -48,6 +51,9 @@ public class SpillDAO {
 				em.merge(s.getPoeng());
 			}
 			em.merge(spill);
+		}
+		public void oppdaterSpiller(Spiller spiller) {
+			em.merge(spiller);
 		}
 		
 		public void slettSpill(Spill spill) {
