@@ -125,13 +125,12 @@ public class Poeng {
 	}
 	public void setTotal() {
 		List<Integer> poengListe = lagrePoengSomListe();
-		int total = 0;
+		int tot = 0;
 		for(Integer i : poengListe) {
-			if(i > -1)
-				total += i;
-			
+			if(i > -1 && i != this.total)
+				tot += i;
 		}
-		this.total = total;
+		this.total = tot;
 
 		
 	}

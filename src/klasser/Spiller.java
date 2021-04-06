@@ -98,25 +98,25 @@ public class Spiller {
 				poeng.setFemmere(Integer.parseInt(request.getParameter("dice-value")));
 			else if (x == 6)
 				poeng.setSeksere(Integer.parseInt(request.getParameter("dice-value")));
-			else if (x == 8)
+			else if (x == 7)
 				poeng.setBonus(Integer.parseInt(request.getParameter("dice-value")));
-			else if (x == 9)
+			else if (x == 8)
 				poeng.setEtPar(Integer.parseInt(request.getParameter("dice-value")));
-			else if (x == 10)
+			else if (x == 9)
 				poeng.setToPar(Integer.parseInt(request.getParameter("dice-value")));
-			else if (x == 11)
+			else if (x == 10)
 				poeng.setTreLike(Integer.parseInt(request.getParameter("dice-value")));
-			else if (x == 12)
+			else if (x == 11)
 				poeng.setFireLike(Integer.parseInt(request.getParameter("dice-value")));
-			else if (x == 13)
+			else if (x == 12)
 				poeng.setHus(Integer.parseInt(request.getParameter("dice-value")));
-			else if (x == 14)
+			else if (x == 13)
 				poeng.setLitenStraight(Integer.parseInt(request.getParameter("dice-value")));
-			else if (x == 15)
+			else if (x == 14)
 				poeng.setStorStraight(Integer.parseInt(request.getParameter("dice-value")));
-			else if (x == 16)
+			else if (x == 15)
 				poeng.setSjanse(Integer.parseInt(request.getParameter("dice-value")));
-			else if (x == 17)
+			else if (x == 16)
 				poeng.setYatzy(Integer.parseInt(request.getParameter("dice-value")));
 
 		}

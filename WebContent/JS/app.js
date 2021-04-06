@@ -106,5 +106,3 @@ t5.addEventListener('click', () => {
 function dice() {
   return Math.floor(Math.random() * 6) + 1;
 }
-
-

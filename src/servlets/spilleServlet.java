@@ -98,17 +98,6 @@ public class spilleServlet extends HttpServlet {
 				x++;
 		}
 
-//		int spillerID;
-//		if (session.getAttribute("spillerID") == null) // *** Begynner på starten av listen.
-//			session.setAttribute("spillerID", spillere.get(0).getSpillerID());
-
-//		else if (spillere.size() > (int) session.getAttribute("spillerID"))
-//			session.setAttribute("spillerID", spillere.get((int) session.getAttribute("spillerID")).getSpillerID());
-//		else {
-//			// *** Starter på nytt i spillere, og øker RundeID ***
-//			session.setAttribute("spillerID", spillere.get(0).getSpillerID());
-//			session.setAttribute("rundeID", (int) session.getAttribute("rundeID") + 1);
-//		}
 
 		System.out.println("runde ID: " + session.getAttribute("rundeID"));
 		System.out.println("spiller ID: " + session.getAttribute("spillerID"));
@@ -123,18 +112,9 @@ public class spilleServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 
-		// ************* TEST - START *************
-
-		// ************* SETUP *************
-		// Kan bare kjøres en gang også må det kommenteres ut
-
-		// Metodene nedenfor som oppretter Spill, Spiller og Poeng
-		// burde plasseres i en egen servlet som en setUpServlet.
 
 		// ************* SETUP *************
 
-		List<Spiller> spillere = dao.hentAlleSpillere(1);
-		System.out.println(session.getAttribute("spillerID"));
 		Spiller spiller = dao.hentBestemtSpiller((int) session.getAttribute("spillerID"));
 		spiller.oppdaterScore(request, response);
 		System.out.println("Etter oppdatering: " + spiller.getPoeng().lagrePoengSomListe());
@@ -145,7 +125,6 @@ public class spilleServlet extends HttpServlet {
 		// ************* SLUTT ************************
 		response.sendRedirect("yatzyServlet");
 
-		// request.getRequestDispatcher("WEB-INF/index.jsp").forward(request, response);
 
 	}
 
