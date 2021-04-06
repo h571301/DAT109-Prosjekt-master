@@ -41,7 +41,7 @@ public class spilleServlet extends HttpServlet {
 //		}
 		
 		
-		/* *** KJØR EN GANG FOR Å SETTE OPP SPILLERE!!! ***
+		/* *** KJØR EN GANG FOR Å SETTE OPP SPILLERE!!! *** 
 		
 		Spill spill = new Spill(1, "Spill1");
 		Spiller s1 = new Spiller(1, "Per", spill, new Poeng(1));
@@ -59,14 +59,14 @@ public class spilleServlet extends HttpServlet {
 		dao.lagreNySpiller(s1);
 		dao.lagreNySpiller(s2);
 		dao.lagreNySpiller(s3);
-		*/
-
+		
+	*/
 
 		int spillID = 1; // Må hentes i framtiden når det blir laget flere spill.
 		List<Spiller> spillere;
 		spillere = dao.hentAlleSpillere(spillID);
 		session.setAttribute("spillere", spillere);
-
+		
 		int x = 0;
 		int poengpos = 0;
 		int rundeID = 0;

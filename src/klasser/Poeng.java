@@ -124,7 +124,15 @@ public class Poeng {
 		this.yatzy = yatzy;
 	}
 	public void setTotal() {
-		this.total = summ + bonus + etPar + toPar + treLike + fireLike + litenStraight + storStraight + hus + sjanse + yatzy;
+		List<Integer> poengListe = lagrePoengSomListe();
+		int total = 0;
+		for(Integer i : poengListe) {
+			if(i > -1)
+				total += i;
+		}
+		this.total = total;
+
+		
 	}
 	public void oppdaterSummer() {
 		this.summ = enere + toere + trere + firere + femmere + seksere;
@@ -201,7 +209,6 @@ public class Poeng {
 		poengListe.add(firere);
 		poengListe.add(femmere);
 		poengListe.add(seksere);
-		poengListe.add(summ);
 		poengListe.add(bonus);
 		poengListe.add(etPar);
 		poengListe.add(toPar);

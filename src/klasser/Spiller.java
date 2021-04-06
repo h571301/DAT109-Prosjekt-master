@@ -121,7 +121,6 @@ public class Spiller {
 
 		}
 
-		poeng.setSum();
 		poeng.setTotal();
 
 //		printScore();
