@@ -129,6 +129,7 @@ public class Poeng {
 		for(Integer i : poengListe) {
 			if(i > -1)
 				total += i;
+			
 		}
 		this.total = total;
 
