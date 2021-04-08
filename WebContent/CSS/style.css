@@ -75,3 +75,11 @@ td {
 .show {
   display: block;
 }
+
+.column {
+  flex-direction: column;
+}
+
+.margin5 {
+  margin: 5px;
+}

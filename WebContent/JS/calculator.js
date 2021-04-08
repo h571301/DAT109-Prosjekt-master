@@ -28,7 +28,7 @@ function antallTerningerPaaKast(T1, T2, T3, T4, T5, Id) {
 			sumTerningKast = seksere(T1, T2, T3, T4, T5);
 			break;
 		case "7":
-			let sum = parseInt(document.getElementById(spillerID + 'sum').value);
+			let sum = parseInt(document.getElementById(spillerID + 'sum').innerHTML);
 
 			if (sum >= 63) { 
 				sumTerningKast = 50;

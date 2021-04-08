@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="CSS/style.css" />
+    <title>Innlogging</title>
+  </head>
+  <body>
+    <div class="container align">
+      <div class="sub-container align number-class">
+          <h1>Velg antall spillere</h1>
+        <div class="btn b1 align">1</div>
+        <div class="btn b2 align">2</div>
+        <div class="btn b3 align">3</div>
+        <div class="btn b4 align">4</div>
+      </div>
+
+      <div class="sub-container align form-class hidden">
+        <form action="innloggingServlet" method="POST">
+          <div class="align column margin5">
+              <h1>Skriv inn spillernavn</h1>
+            <input class="margin5 f1 hidden" name="player1"/>
+            <input class="margin5 f2 hidden" name="player2"/>
+            <input class="margin5 f3 hidden" name="player3"/>
+            <input class="margin5 f4 hidden" name="player4"/>
+          </div>
+          
+          <div class="align">
+          <button id="submit-btn" class="btn" type="submit">Send inn</button>
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="JS/innlogging.js"></script>
+  </body>
+</html>
