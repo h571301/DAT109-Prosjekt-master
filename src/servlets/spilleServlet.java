@@ -127,5 +127,9 @@ public class spilleServlet extends HttpServlet {
 
 
 	}
+	
+	private void lagNyttSpill(HttpServletRequest request, HttpServletResponse response) {
+		
+	}
 
 }
