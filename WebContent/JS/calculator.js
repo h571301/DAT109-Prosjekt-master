@@ -389,7 +389,7 @@ function log(id, result, spillerID) {
 			break;
 		case "7":
 			let bonus = document.getElementById(spillerID + 'bonus');
-			bonus.innerHTML = 99;
+			bonus.innerHTML = result;
 			break;
 		case "8":
 			let onePair = document.getElementById(spillerID + 'one-pair');
@@ -430,4 +430,3 @@ function log(id, result, spillerID) {
 		default:
 	}
 }
-

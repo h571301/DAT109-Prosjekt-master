@@ -57,7 +57,7 @@ btn.addEventListener('click', () => {
 
     if (roundNr == 3) {
       
-      let result = antallTerningerPaaKast(t1.innerHTML,t2.innerHTML,t3.innerHTML,t4.innerHTML,t5.innerHTML,rundeID);
+      let result = antallTerningerPaaKast(parseInt(t1.innerHTML),parseInt(t2.innerHTML),parseInt(t3.innerHTML),parseInt(t4.innerHTML),parseInt(t5.innerHTML),rundeID);
       
     log(rundeID, result, spillerID);
 	
