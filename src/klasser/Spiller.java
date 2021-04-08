@@ -96,8 +96,10 @@ public class Spiller {
 				poeng.setFirere(Integer.parseInt(request.getParameter("dice-value")));
 			else if (x == 5)
 				poeng.setFemmere(Integer.parseInt(request.getParameter("dice-value")));
-			else if (x == 6)
+			else if (x == 6) {
 				poeng.setSeksere(Integer.parseInt(request.getParameter("dice-value")));
+				poeng.setSum();
+			}
 			else if (x == 7)
 				poeng.setBonus(Integer.parseInt(request.getParameter("dice-value")));
 			else if (x == 8)

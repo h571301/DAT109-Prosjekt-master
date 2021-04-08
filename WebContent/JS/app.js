@@ -12,8 +12,6 @@ let submitId = document.getElementById('submit-id');
 let rundeID = document.getElementById('runde-id').innerHTML;
 let spillerID = document.getElementById('spiller-id').innerHTML;
 
-
-
 // DOM Dices
 let t1 = document.querySelector('.t1');
 let t2 = document.querySelector('.t2');
@@ -62,7 +60,7 @@ btn.addEventListener('click', () => {
       let result = antallTerningerPaaKast(t1.innerHTML,t2.innerHTML,t3.innerHTML,t4.innerHTML,t5.innerHTML,rundeID);
       
     log(rundeID, result, spillerID);
-
+	
      // ones.innerHTML = result;
       //s2.innerHTML = result;
       submitValue.value = result;
