@@ -41,9 +41,9 @@ public class Poeng {
 	private int toPar; 
 	private int treLike; 
 	private int fireLike; 
+	private int hus; 
 	private int litenStraight; 
 	private int storStraight; 
-	private int hus; 
 	private int sjanse; 
 	private int yatzy; 
 	private int total;
@@ -214,9 +214,9 @@ public class Poeng {
 		poengListe.add(toPar);
 		poengListe.add(treLike);
 		poengListe.add(fireLike);
+		poengListe.add(hus);
 		poengListe.add(litenStraight);
 		poengListe.add(storStraight);
-		poengListe.add(hus);
 		poengListe.add(sjanse);
 		poengListe.add(yatzy);
 		poengListe.add(total);
