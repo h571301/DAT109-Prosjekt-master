@@ -430,4 +430,3 @@ function log(id, result, spillerID) {
 		default:
 	}
 }
-
