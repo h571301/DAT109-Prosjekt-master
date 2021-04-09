@@ -50,13 +50,14 @@ public class InnloggingServet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-
+		List<Spiller> spillere = new ArrayList<Spiller>();
 		for (String spiller : navn) {
 			if (spiller != null && spiller.compareTo("") != 0) {
-				System.out.println("Spiller : "+spiller+" Blir lagt til");
+				System.out.println("Spiller : "+spiller+" Blir lagt til...");
 				Spiller s1 = new Spiller(x, spiller, spill, new Poeng(x));
 				dao.lagreNyPoengListe(s1.getPoeng());
 				dao.lagreNySpiller(s1);
+				spillere.add(s1);
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e1) {
@@ -68,12 +69,14 @@ public class InnloggingServet extends HttpServlet {
 				break;
 			x++;
 		}
+		//request.setAttribute("spillere", spillere);
 		System.out.println("Generating Yatzy...");
 		try {
-			Thread.sleep(15000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		
 		response.sendRedirect("yatzyServlet");
 
 	}

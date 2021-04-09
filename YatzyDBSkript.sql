@@ -40,7 +40,7 @@ CREATE TABLE Spiller
 	poengID int,
 	navn VARCHAR(40),
 	PRIMARY KEY (spillerID),
-	FOREIGN KEY (poengID) REFERENCES Poeng (poengID) ON UPDATE CASCADE,
-	FOREIGN KEY (spillID) REFERENCES Spill (spillID) ON UPDATE CASCADE
+	FOREIGN KEY (poengID) REFERENCES Poeng (poengID),
+	FOREIGN KEY (spillID) REFERENCES Spill (spillID) 
 );
 

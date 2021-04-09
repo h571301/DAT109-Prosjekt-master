@@ -15,11 +15,10 @@ import javax.persistence.Table;
 public class Spill {
 	
 	@Id
-	
 	private int spillID;
 	private String navn;
 	
-	@OneToMany(mappedBy = "spill", cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy = "spill")
 	private List<Spiller> spillere;
 	
 	public Spill() {}

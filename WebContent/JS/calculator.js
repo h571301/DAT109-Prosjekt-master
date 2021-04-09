@@ -53,15 +53,15 @@ function antallTerningerPaaKast(T1, T2, T3, T4, T5, Id) {
 			sumTerningKast = fireLike(T1, T2, T3, T4, T5);
 			break;
 
-		case "12":
+		case "13":
 			sumTerningKast = litenStraight(T1, T2, T3, T4, T5);
 			break;
 
-		case "13":
+		case "14":
 			sumTerningKast = storStraight(T1, T2, T3, T4, T5);
 			break;
 
-		case "14":
+		case "12":
 			sumTerningKast = hus(T1, T2, T3, T4, T5);
 			break;
 
@@ -188,36 +188,36 @@ function treLike(T1, T2, T3, T4, T5) {
 	let arraySeksere = [];
 
 	for (let i = 0; i < arrayForTerninger.length; i++) {
-		if (arrayForTerninger[i] == 1) {
+		if (arrayForTerninger[i] === 1) {
 			arrayEnere.push(arrayForTerninger[i]);
-		} else if (arrayForTerninger[i] == 2) {
+		} else if (arrayForTerninger[i] === 2) {
 			arrayToere.push(arrayForTerninger[i]);
-		} else if (arrayForTerninger[i] == 3) {
+		} else if (arrayForTerninger[i] === 3) {
 			arrayTreere.push(arrayForTerninger[i]);
-		} else if (arrayForTerninger[i] == 4) {
+		} else if (arrayForTerninger[i] === 4) {
 			arrayFirere.push(arrayForTerninger[i]);
-		} else if (arrayForTerninger[i] == 5) {
+		} else if (arrayForTerninger[i] === 5) {
 			arrayFemmere.push(arrayForTerninger[i]);
-		} else if (arrayForTerninger[i] == 6) {
-			arrayTreere.push(arrayForTerninger[i]);
+		} else if (arrayForTerninger[i] === 6) {
+			arraySeksere.push(arrayForTerninger[i]);
 		}
 	}
 
-	if (arraySeksere.length == 3) {
-		return checkSumValueOfArray(arraySeksere);
-	} else if (arrayFemmere.length == 3) {
-		return checkSumValueOfArray(arrayFemmere);
-	} else if (arrayFirere.length == 3) {
-		return checkSumValueOfArray(arrayFirere);
-	} else if (arrayTreere.length == 3) {
-		return checkSumValueOfArray(arrayTreere);
-	} else if (arrayToere.length == 3) {
-		return checkSumValueOfArray(arrayToere);
-	} else if (arrayEnere.length == 3) {
-		return checkSumValueOfArray(arrayEnere);
-	} else {
-		return 0;
-	}
+  if (arraySeksere.length >= 3) {
+    return checkSumTreLike(arraySeksere);
+  } else if (arrayFemmere.length >= 3) {
+    return checkSumTreLike(arrayFemmere);
+  } else if (arrayFirere.length >= 3) {
+    return checkSumTreLike(arrayFirere);
+  } else if (arrayTreere.length >= 3) {
+    return checkSumTreLike(arrayTreere);
+  } else if (arrayToere.length >= 3) {
+    return checkSumTreLike(arrayToere);
+  } else if (arrayEnere.length >= 3) {
+    return checkSumTreLike(arrayEnere);
+  } else {
+    return 0;
+  }
 }
 
 function fireLike(T1, T2, T3, T4, T5) {
@@ -232,36 +232,36 @@ function fireLike(T1, T2, T3, T4, T5) {
 	let arraySeksere = [];
 
 	for (let i = 0; i < arrayForTerninger.length; i++) {
-		if (arrayForTerninger[i] == 1) {
+		if (arrayForTerninger[i] === 1) {
 			arrayEnere.push(arrayForTerninger[i]);
-		} else if (arrayForTerninger[i] == 2) {
+		} else if (arrayForTerninger[i] === 2) {
 			arrayToere.push(arrayForTerninger[i]);
-		} else if (arrayForTerninger[i] == 3) {
+		} else if (arrayForTerninger[i] === 3) {
 			arrayTreere.push(arrayForTerninger[i]);
-		} else if (arrayForTerninger[i] == 4) {
+		} else if (arrayForTerninger[i] === 4) {
 			arrayFirere.push(arrayForTerninger[i]);
-		} else if (arrayForTerninger[i] == 5) {
+		} else if (arrayForTerninger[i] === 5) {
 			arrayFemmere.push(arrayForTerninger[i]);
-		} else if (arrayForTerninger[i] == 6) {
-			arrayTreere.push(arrayForTerninger[i]);
+		} else if (arrayForTerninger[i] === 6) {
+			arraySeksere.push(arrayForTerninger[i]);
 		}
 	}
 
-	if (arraySeksere.length == 4) {
-		return checkSumValueOfArray(arraySeksere);
-	} else if (arrayFemmere.length == 4) {
-		return checkSumValueOfArray(arrayFemmere);
-	} else if (arrayFirere.length == 4) {
-		return checkSumValueOfArray(arrayFirere);
-	} else if (arrayTreere.length == 4) {
-		return checkSumValueOfArray(arrayTreere);
-	} else if (arrayToere.length == 4) {
-		return checkSumValueOfArray(arrayToere);
-	} else if (arrayEnere.length == 4) {
-		return checkSumValueOfArray(arrayEnere);
-	} else {
-		return 0;
-	}
+  if (arraySeksere.length >= 4) {
+    return checkSumFireLike(arraySeksere);
+  } else if (arrayFemmere.length >= 4) {
+    return checkSumFireLike(arrayFemmere);
+  } else if (arrayFirere.length >= 4) {
+    return checkSumFireLike(arrayFirere);
+  } else if (arrayTreere.length >= 4) {
+    return checkSumFireLike(arrayTreere);
+  } else if (arrayToere.length >= 4) {
+    return checkSumFireLike(arrayToere);
+  } else if (arrayEnere.length >= 4) {
+    return checkSumFireLike(arrayEnere);
+  } else {
+    return 0;
+  }
 }
 
 function litenStraight(T1, T2, T3, T4, T5) {
@@ -270,7 +270,7 @@ function litenStraight(T1, T2, T3, T4, T5) {
 
 	if (
 		checkIfArrayIsUnique(arrayForTerninger) &&
-		checkSumValueOfArray(arrayForTerninger) == 15
+		checkSumValueOfArray(arrayForTerninger) === 15
 	) {
 		return checkSumValueOfArray(arrayForTerninger);
 	} else {
@@ -284,7 +284,7 @@ function storStraight(T1, T2, T3, T4, T5) {
 
 	if (
 		checkIfArrayIsUnique(arrayForTerninger) &&
-		checkSumValueOfArray(arrayForTerninger) == 20
+		checkSumValueOfArray(arrayForTerninger) === 20
 	) {
 		return checkSumValueOfArray(arrayForTerninger);
 	} else {
@@ -293,15 +293,26 @@ function storStraight(T1, T2, T3, T4, T5) {
 }
 
 function hus(T1, T2, T3, T4, T5) {
-	let arrayForTerninger = [T1, T2, T3, T4, T5];
-	arrayForTerninger.sort((a, b) => a - b);
-	let x = 0
-	if (treLike(T1, T2, T3, T4, T5) != 0 && antallPar(T1, T2, T3, T4, T5) != 0) {
-		let like = treLike(T1, T2, T3, T4, T5);
-		let par = ettPar(T1, T2, T3, T4, T5);
-		x = like + par;
-	}
-	return x;
+  let a = [T1, T2, T3, T4, T5];
+  a.sort((a, b) => a - b);
+  let res = 0;
+
+  if (
+    a[0] === a[1] &&
+    a[1] === a[2] &&
+    a[3] === a[4] &&
+    a[4] === a[5]
+  ) {
+    res = checkSumValueOfArray(a);
+  } else if (
+    a[0] === a[1] &&
+    a[2] === a[3] &&
+    a[3] === a[4]
+  ) {
+    res = checkSumValueOfArray(a);
+  }
+
+  return res;
 }
 
 function yatzy(T1, T2, T3, T4, T5) {
@@ -310,10 +321,10 @@ function yatzy(T1, T2, T3, T4, T5) {
 	console.log(arrayForTerninger);
 
 	if (
-		arrayForTerninger[0] == arrayForTerninger[1] &&
-		arrayForTerninger[1] == arrayForTerninger[2] &&
-		arrayForTerninger[2] == arrayForTerninger[3] &&
-		arrayForTerninger[3] == arrayForTerninger[4]
+		arrayForTerninger[0] === arrayForTerninger[1] &&
+		arrayForTerninger[1] === arrayForTerninger[2] &&
+		arrayForTerninger[2] === arrayForTerninger[3] &&
+		arrayForTerninger[3] === arrayForTerninger[4]
 	) {
 		return 50;
 	} else {
@@ -332,7 +343,7 @@ function checkIfArrayIsUnique(inputArray) {
 	let rl = true;
 
 	for (let i = 0; i < inputArray.length - 1; i++) {
-		if (inputArray[i] == inputArray[i + 1]) {
+		if (inputArray[i] === inputArray[i + 1]) {
 			rl = false;
 		}
 	}
@@ -353,13 +364,33 @@ function antallPar(T1, T2, T3, T4, T5) {
 	arrayForTerninger.sort((a, b) => a - b);
 	let par = 0
 	for (let i = 0; i < arrayForTerninger.length - 1; i++) {
-		if (arrayForTerninger[i] == arrayForTerninger[i + 1] &&
-			arrayForTerninger[i] != arrayForTerninger[i - 1]) {
+		if (arrayForTerninger[i] === arrayForTerninger[i + 1] &&
+			arrayForTerninger[i] !== arrayForTerninger[i - 1]) {
 			par++;
 		}
 	}
 	return par;
 }
+
+function checkSumTreLike(x) {
+  let sum = 0;
+
+  for (let i = 0; i < 3; i++) {
+    sum = x[i] + sum;
+  }
+  return sum;
+}
+
+function checkSumFireLike(x) {
+  let sum = 0;
+
+  for (let i = 0; i < 4; i++) {
+    sum = x[i] + sum;
+  }
+  return sum;
+}
+
+
 
 function log(id, result, spillerID) {
 	switch (id) {
@@ -430,4 +461,3 @@ function log(id, result, spillerID) {
 		default:
 	}
 }
-
