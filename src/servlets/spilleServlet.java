@@ -43,7 +43,7 @@ public class spilleServlet extends HttpServlet {
 		int poengpos = 0;
 		int rundeID = 0;
 		boolean funnet = false;
-		
+
 		// *** Finner rundeID og spillerID ****
 		while (!funnet) {
 			if (spillere.size() <= x) {
@@ -57,16 +57,19 @@ public class spilleServlet extends HttpServlet {
 			if (poengliste.size() <= poengpos) {
 				System.err.println("Fant ingen spiller med -1 poeng verdi, spillet er ferdig.");
 				List<Spiller> top = spillere;
-				top.sort((Spiller s1, Spiller s2) ->s1.compareTo(s2));
-				
-				//System.out.println("Vinner: " +top.get(0).getNavn());
-				
-				session.setAttribute("1stPlace", top.get(0));
-				session.setAttribute("2ndPlace", top.get(1));
-				session.setAttribute("3rdPlace", top.get(2));
+				top.sort((Spiller s1, Spiller s2) -> s1.compareTo(s2));
+
+				// System.out.println("Vinner: " +top.get(0).getNavn());
+
+				session.setAttribute("firstPlace", top.get(0).getNavn());
+				if (spillere.size() > 1)
+					session.setAttribute("secondPlace", top.get(1).getNavn());
+				if (spillere.size() > 2)
+					session.setAttribute("thirdPlace", top.get(2).getNavn());
+
 				request.getRequestDispatcher("WEB-INF/resultat.jsp").forward(request, response);
 				return;
-			} 
+			}
 
 			if (spillere.get(0).getSpillerID() == spiller.getSpillerID())
 				rundeID++;
@@ -85,7 +88,7 @@ public class spilleServlet extends HttpServlet {
 		System.out.println("spiller ID: " + session.getAttribute("spillerID"));
 
 		request.getRequestDispatcher("WEB-INF/spill.jsp").forward(request, response);
-		
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -94,8 +97,8 @@ public class spilleServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 
-		// *** Oppdaterer Score *** 
-		
+		// *** Oppdaterer Score ***
+
 		Spiller spiller = dao.hentBestemtSpiller((int) session.getAttribute("spillerID"));
 		spiller.oppdaterScore(request, response);
 		System.out.println("Etter oppdatering: " + spiller.getPoeng().lagrePoengSomListe());
