@@ -34,49 +34,36 @@ public class InnloggingServet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		if (dao.finnesSpill(1)) // reset spill/slett spill
+			dao.slettSpill(1);
+
 		List<String> navn = new ArrayList<String>();
 		navn.add(request.getParameter("player1"));
 		navn.add(request.getParameter("player2"));
 		navn.add(request.getParameter("player3"));
 		navn.add(request.getParameter("player4"));
-		
+
 		int x = 1;
-		
-		Spill spill = new Spill(1, "Spill1"); 
+
+		Spill spill = new Spill(1, "Spill1");
 		dao.lagreNyttSpill(spill);
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		List<Spiller> spillere = new ArrayList<Spiller>();
 		for (String spiller : navn) {
 			if (spiller != null && spiller.compareTo("") != 0) {
-				System.out.println("Spiller : "+spiller+" Blir lagt til...");
+				System.out.println("Spiller : " + spiller + " Is being added...");
 				Spiller s1 = new Spiller(x, spiller, spill, new Poeng(x));
 				dao.lagreNyPoengListe(s1.getPoeng());
 				dao.lagreNySpiller(s1);
 				spillere.add(s1);
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-
 			} else
 				break;
 			x++;
 		}
-		//request.setAttribute("spillere", spillere);
-		System.out.println("Generating Yatzy...");
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		
 		response.sendRedirect("yatzyServlet");
 
 	}

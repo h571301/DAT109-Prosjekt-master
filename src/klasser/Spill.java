@@ -1,5 +1,8 @@
 package klasser;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -49,6 +52,20 @@ public class Spill {
 	
 	public void oppdaterSpiller(int id, Spiller spiller) {
 		spillere.set(id, spiller);
+	}
+	public List<Spiller> finnTop3() {
+
+		List<Spiller> top = spillere;
+		
+		//Collections.sort(temp);
+		Collections.sort(top, (s1, s2) -> {
+			return s1.compareTo(s2);
+		});
+		
+		
+		
+		return top;
+		
 	}
 	
 	

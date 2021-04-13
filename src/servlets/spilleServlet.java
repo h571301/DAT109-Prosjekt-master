@@ -34,42 +34,16 @@ public class spilleServlet extends HttpServlet {
 		System.out.println("doget blir kjørt");
 		HttpSession session = request.getSession();
 
-//		if (session.getAttribute("rundeID") == null) // Setter start verdi for rundeID, rundeID blir økt lengre nede.
-//		{
-//			
-//			session.setAttribute("rundeID", 1);
-//			
-//		}
-//		
-
-		/***
-		 * KJØR EN GANG FOR Å SETTE OPP SPILLERE!!! **
-		 * 
-		 * Spill spill = new Spill(1, "Spill1"); Spiller s1 = new Spiller(1, "Per",
-		 * spill, new Poeng(1)); Spiller s2 = new Spiller(2, "Petter", spill, new
-		 * Poeng(2)); Spiller s3 = new Spiller(3, "Pelle", spill, new Poeng(3));
-		 * 
-		 * 
-		 * 
-		 * 
-		 * dao.lagreNyttSpill(spill); dao.lagreNyPoengListe(s1.getPoeng());
-		 * dao.lagreNyPoengListe(s2.getPoeng()); dao.lagreNyPoengListe(s3.getPoeng());
-		 * 
-		 * dao.lagreNySpiller(s1); dao.lagreNySpiller(s2); dao.lagreNySpiller(s3);
-		 */
 		List<Spiller> spillere;
 
-		int spillID = 1; // Må hentes i framtiden når det blir laget flere spill.
-//		if (request.getAttribute("spillere") != null) {
-//			spillere = (List<Spiller>) request.getAttribute("spillere");
-//
-//		} else
-		spillere = dao.hentAlleSpillere(spillID);
+		spillere = dao.hentAlleSpillere2();
 		session.setAttribute("spillere", spillere);
 		int x = 0;
 		int poengpos = 0;
 		int rundeID = 0;
 		boolean funnet = false;
+		
+		// *** Finner rundeID og spillerID ****
 		while (!funnet) {
 			if (spillere.size() <= x) {
 				x = 0;
@@ -81,8 +55,14 @@ public class spilleServlet extends HttpServlet {
 
 			if (poengliste.size() <= poengpos) {
 				System.err.println("Fant ingen spiller med -1 poeng verdi, spillet er ferdig.");
-				break;
-			}
+				Spill spill = dao.hentBestemtSpill(1);
+				List<Spiller> top3 = spill.finnTop3();
+				session.setAttribute("1stPlace", top3.get(0));
+				session.setAttribute("2ndPlace", top3.get(1));
+				session.setAttribute("3rdPlace", top3.get(2));
+				request.getRequestDispatcher("WEB-INF/resultat.jsp").forward(request, response);
+				return;
+			} 
 
 			if (spillere.get(0).getSpillerID() == spiller.getSpillerID())
 				rundeID++;
@@ -101,7 +81,7 @@ public class spilleServlet extends HttpServlet {
 		System.out.println("spiller ID: " + session.getAttribute("spillerID"));
 
 		request.getRequestDispatcher("WEB-INF/spill.jsp").forward(request, response);
-
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -110,14 +90,14 @@ public class spilleServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 
-		// ************* SETUP *************
-
+		// *** Oppdaterer Score *** 
+		
 		Spiller spiller = dao.hentBestemtSpiller((int) session.getAttribute("spillerID"));
 		spiller.oppdaterScore(request, response);
 		System.out.println("Etter oppdatering: " + spiller.getPoeng().lagrePoengSomListe());
 		dao.oppdaterNyPoengListe(spiller.getPoeng());
 
-		// ************* SLUTT ************************
+		// *** Ferdig ***
 		response.sendRedirect("yatzyServlet");
 
 	}

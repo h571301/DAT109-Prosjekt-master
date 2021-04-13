@@ -127,9 +127,20 @@ public class Spiller {
 
 //		printScore();
 	}
+	
+	public int compareTo(Spiller s1) {
+		Integer spillerPoeng = poeng.getTotal();
+		Integer s1Poeng = s1.poeng.getTotal();
+		
+		return spillerPoeng.compareTo(s1Poeng);
+	}
+	
+	
 
 	@Override
 	public String toString() {
 		return "Spiller [spillerID=" + spillerID + ", navn=" + navn + ", spill=" + spill + ", poeng=" + poeng + "]";
 	}
+	
+	
 }
