@@ -99,9 +99,8 @@ public class Spiller {
 			else if (x == 6) {
 				poeng.setSeksere(Integer.parseInt(request.getParameter("dice-value")));
 				poeng.setSum();
-			}
-			else if (x == 7)
-				poeng.setBonus(Integer.parseInt(request.getParameter("dice-value")));
+				poeng.setBonus();
+			}	
 			else if (x == 8)
 				poeng.setEtPar(Integer.parseInt(request.getParameter("dice-value")));
 			else if (x == 9)
@@ -132,7 +131,7 @@ public class Spiller {
 		Integer spillerPoeng = poeng.getTotal();
 		Integer s1Poeng = s1.poeng.getTotal();
 		
-		return spillerPoeng.compareTo(s1Poeng);
+		return s1Poeng.compareTo(spillerPoeng);
 	}
 	
 	

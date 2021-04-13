@@ -102,8 +102,10 @@ public class Poeng {
 		this.summ = enere + toere + trere + firere + femmere + seksere;
 	}
 
-	public void setBonus(int bonus) {
-		this.bonus = bonus;
+	public void setBonus() {
+		if(this.summ > 63) 
+			this.bonus = 50;
+		else this.bonus = 0;
 	}
 
 	public void setEtPar(int etPar) {

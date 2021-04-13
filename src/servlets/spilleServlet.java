@@ -2,6 +2,7 @@ package servlets;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -55,11 +56,12 @@ public class spilleServlet extends HttpServlet {
 
 			if (poengliste.size() <= poengpos) {
 				System.err.println("Fant ingen spiller med -1 poeng verdi, spillet er ferdig.");
-				Spill spill = dao.hentBestemtSpill(1);
-				List<Spiller> top3 = spill.finnTop3();
-				session.setAttribute("1stPlace", top3.get(0));
-				session.setAttribute("2ndPlace", top3.get(1));
-				session.setAttribute("3rdPlace", top3.get(2));
+				List<Spiller> top = spillere;
+				top.sort((Spiller s1, Spiller s2) ->s1.compareTo(s2));
+				System.out.println("Vinner: " +top.get(0).getNavn());
+				session.setAttribute("1stPlace", top.get(0));
+				session.setAttribute("2ndPlace", top.get(1));
+				session.setAttribute("3rdPlace", top.get(2));
 				request.getRequestDispatcher("WEB-INF/resultat.jsp").forward(request, response);
 				return;
 			} 
