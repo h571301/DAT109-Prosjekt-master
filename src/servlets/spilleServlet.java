@@ -58,7 +58,9 @@ public class spilleServlet extends HttpServlet {
 				System.err.println("Fant ingen spiller med -1 poeng verdi, spillet er ferdig.");
 				List<Spiller> top = spillere;
 				top.sort((Spiller s1, Spiller s2) ->s1.compareTo(s2));
-				System.out.println("Vinner: " +top.get(0).getNavn());
+				
+				//System.out.println("Vinner: " +top.get(0).getNavn());
+				
 				session.setAttribute("1stPlace", top.get(0));
 				session.setAttribute("2ndPlace", top.get(1));
 				session.setAttribute("3rdPlace", top.get(2));
