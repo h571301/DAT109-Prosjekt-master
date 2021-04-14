@@ -42,7 +42,7 @@ public class LoggInnServlet extends HttpServlet {
 	
 	sesjon.setAttribute("loggetInn", skjema.getBrukernavn());
 	
-		response.sendRedirect("Deltagere");
+		response.sendRedirect("DeltagerServlet");
 	} else {
 		skjema.feilMelding();
 		request.getSession().setAttribute("skjema", skjema);

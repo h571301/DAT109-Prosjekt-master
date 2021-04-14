@@ -17,7 +17,7 @@ public class Deltager {
 		this.brukernavn = brukernavn;
 		this.passord = passord;
 		this.epost = epost;
-
+		
 	}
 
 	public Deltager() {

@@ -1,9 +1,7 @@
 package loggInn;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
-
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,25 +14,25 @@ import dao.DeltagerDAO;
 @WebServlet("/Deltagere")
 public class DeltagerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	
 
-		@EJB
-		private DeltagerDAO dao;
-		
-		@Override
-		protected void doGet(HttpServletRequest request, HttpServletResponse response)
-				throws ServletException, IOException {
-			
-			List<Deltager> studenter = dao.hentUtDeltagere();
-	 		
-			response.setContentType("text/plain");
+	@EJB
+	private DeltagerDAO dao;
 
-			PrintWriter out = response.getWriter();
-			
-			studenter.forEach(out::println);
-			
-		}
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		List<Deltager> studenter = dao.hentUtDeltagere();
+
+		String[] names = new String[studenter.size()];
+
+		for (int i = 0; i < studenter.size(); i++) {
+			names[i] = studenter.get(i).getBrukernavn();
+		} 
+		System.out.println(studenter.get(1).getBrukernavn());
+
+		request.setAttribute("names", names);
+		request.getRequestDispatcher("WEB-INF/Deltager.jsp").forward(request, response);
 
 	}
-
+}
