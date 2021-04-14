@@ -83,3 +83,11 @@ td {
 .margin5 {
   margin: 5px;
 }
+
+.border {
+  border: solid black;
+}
+
+.inline {
+  display: inline-block;
+}

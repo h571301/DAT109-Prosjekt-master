@@ -27,16 +27,6 @@ function antallTerningerPaaKast(T1, T2, T3, T4, T5, Id) {
 		case "6":
 			sumTerningKast = seksere(T1, T2, T3, T4, T5);
 			break;
-		case "7":
-			let sum = parseInt(document.getElementById(spillerID + 'sum').innerHTML);
-
-			if (sum >= 63) { 
-				sumTerningKast = 50;
-			} else {
-				sumTerningKast = 0;
-			}
-			break;
-
 		case "8":
 			sumTerningKast = ettPar(T1, T2, T3, T4, T5);
 			break;
@@ -417,10 +407,6 @@ function log(id, result, spillerID) {
 		case "6":
 			let sixes = document.getElementById(spillerID + 'sixes');
 			sixes.innerHTML = result;
-			break;
-		case "7":
-			let bonus = document.getElementById(spillerID + 'bonus');
-			bonus.innerHTML = result;
 			break;
 		case "8":
 			let onePair = document.getElementById(spillerID + 'one-pair');
