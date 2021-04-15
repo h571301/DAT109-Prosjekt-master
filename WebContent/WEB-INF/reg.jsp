@@ -11,9 +11,9 @@
 <body>
 <h2>Registrering</h2>
   <form action="PaaMeldingServlet" method="post">
-  <input type="text" name="brukernavn" value="${skjema.brukernavn}"/> brukernavn <br>
-  <input type="text" name="epost" value="${skjema.epost}"/> epost <br>
-  <input type="password" name="passord" value="${skjema.passord}"/> passord <br>
+  <input type="text" name="brukernavn" /> brukernavn <br>
+  <input type="text" name="epost" /> epost <br>
+  <input type="password" name="passord" /> passord <br>
   <input type="submit" value="Registrer deg">
   </form>
 </body>

@@ -35,14 +35,14 @@ public class InnloggingServet extends HttpServlet {
 			throws ServletException, IOException {
 		//request.getRequestDispatcher("WEB-INF/innlogging.html").forward(request, response);
 		
+		//dao.startDB();
 		
 		
-		
-		if (dao.finnesSpill(1)) // reset spill/slett spill
-			dao.slettSpill(1);
+		//if (dao.finnesSpill(1)) // reset spill/slett spill
+		//	dao.slettSpill(1);
 		
 		List<Deltager> deltagere = daoDeltagere.hentUtDeltagere();
-		System.out.println("Deltagere " + deltagere);
+		
 		
 		List<String> navn = new ArrayList<String>();
 //		navn.add(request.getParameter("player1"));
@@ -57,6 +57,7 @@ public class InnloggingServet extends HttpServlet {
 		int x = 1;
 
 		Spill spill = new Spill(1, "Spill1");
+		
 		dao.lagreNyttSpill(spill);
 		try {
 			Thread.sleep(1000);

@@ -5,7 +5,10 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaDelete;
 
+import klasser.Deltager;
 import klasser.Poeng;
 import klasser.Spill;
 import klasser.Spiller;
@@ -90,5 +93,27 @@ public class SpillDAO {
 	    return ( ( count.equals( 0L ) ) ? false : true );
 
 	}
+	
+
+	
+	public void slettDB() {
+		
+//		em.createQuery("DELETE FROM yatzydb.spill");
+//		em.createQuery("DELETE FROM yatzydb.poeng");
+//		em.createQuery("DELETE FROM yatzydb.spiller");
+		
+		em.createNativeQuery("TRUNCATE TABLE yatzydb.spill CASCADE")
+        .executeUpdate();
+		
+		em.createNativeQuery("TRUNCATE TABLE yatzydb.poeng CASCADE")
+        .executeUpdate();
+		
+		em.createNativeQuery("TRUNCATE TABLE yatzydb.spiller CASCADE")
+        .executeUpdate();
+		  
+		  
+		
+	}
+
 
 }
