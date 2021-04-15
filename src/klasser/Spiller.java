@@ -134,6 +134,10 @@ public class Spiller {
 		return s1Poeng.compareTo(spillerPoeng);
 	}
 	
+	public void resetPoeng(int id) {
+		this.poeng = new Poeng(id);
+	}
+	
 	
 
 	@Override
