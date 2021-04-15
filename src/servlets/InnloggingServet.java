@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.DeltagerDAO;
 import dao.SpillDAO;
+import klasser.Deltager;
 import klasser.Poeng;
 import klasser.Spill;
 import klasser.Spiller;
@@ -25,24 +27,33 @@ public class InnloggingServet extends HttpServlet {
 
 	@EJB
 	private SpillDAO dao;
+	
+	@EJB
+	private DeltagerDAO daoDeltagere;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getRequestDispatcher("WEB-INF/innlogging.html").forward(request, response);
-
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+		//request.getRequestDispatcher("WEB-INF/innlogging.html").forward(request, response);
+		
+		
+		
+		
 		if (dao.finnesSpill(1)) // reset spill/slett spill
 			dao.slettSpill(1);
-
+		
+		List<Deltager> deltagere = daoDeltagere.hentUtDeltagere();
+		System.out.println("Deltagere " + deltagere);
+		
 		List<String> navn = new ArrayList<String>();
-		navn.add(request.getParameter("player1"));
-		navn.add(request.getParameter("player2"));
-		navn.add(request.getParameter("player3"));
-		navn.add(request.getParameter("player4"));
+//		navn.add(request.getParameter("player1"));
+//		navn.add(request.getParameter("player2"));
+//		navn.add(request.getParameter("player3"));
+//		navn.add(request.getParameter("player4"));
 
+		for(Deltager deltager : deltagere) {
+			navn.add(deltager.getBrukernavn());
+		}
+		
 		int x = 1;
 
 		Spill spill = new Spill(1, "Spill1");
@@ -65,6 +76,14 @@ public class InnloggingServet extends HttpServlet {
 			x++;
 		}
 		response.sendRedirect("yatzyServlet");
+		
+		
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+	
 
 	}
 

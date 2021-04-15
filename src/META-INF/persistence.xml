@@ -10,6 +10,7 @@
 		<class>klasser.Poeng</class>
 		<class>klasser.Spiller</class>
 		<class>klasser.Spill</class>
+		<class>klasser.Deltager</class>
 		<properties>
 			<property name="eclipselink.weaving" value="false" />
 		</properties>

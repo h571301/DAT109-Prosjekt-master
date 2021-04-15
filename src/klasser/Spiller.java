@@ -101,23 +101,23 @@ public class Spiller {
 				poeng.setSum();
 				poeng.setBonus();
 			}	
-			else if (x == 7)
-				poeng.setEtPar(Integer.parseInt(request.getParameter("dice-value")));
 			else if (x == 8)
-				poeng.setToPar(Integer.parseInt(request.getParameter("dice-value")));
+				poeng.setEtPar(Integer.parseInt(request.getParameter("dice-value")));
 			else if (x == 9)
-				poeng.setTreLike(Integer.parseInt(request.getParameter("dice-value")));
+				poeng.setToPar(Integer.parseInt(request.getParameter("dice-value")));
 			else if (x == 10)
-				poeng.setFireLike(Integer.parseInt(request.getParameter("dice-value")));
+				poeng.setTreLike(Integer.parseInt(request.getParameter("dice-value")));
 			else if (x == 11)
-				poeng.setHus(Integer.parseInt(request.getParameter("dice-value")));
+				poeng.setFireLike(Integer.parseInt(request.getParameter("dice-value")));
 			else if (x == 12)
-				poeng.setLitenStraight(Integer.parseInt(request.getParameter("dice-value")));
+				poeng.setHus(Integer.parseInt(request.getParameter("dice-value")));
 			else if (x == 13)
-				poeng.setStorStraight(Integer.parseInt(request.getParameter("dice-value")));
+				poeng.setLitenStraight(Integer.parseInt(request.getParameter("dice-value")));
 			else if (x == 14)
-				poeng.setSjanse(Integer.parseInt(request.getParameter("dice-value")));
+				poeng.setStorStraight(Integer.parseInt(request.getParameter("dice-value")));
 			else if (x == 15)
+				poeng.setSjanse(Integer.parseInt(request.getParameter("dice-value")));
+			else if (x == 16)
 				poeng.setYatzy(Integer.parseInt(request.getParameter("dice-value")));
 
 		}
