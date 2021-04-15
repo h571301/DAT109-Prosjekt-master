@@ -13,6 +13,7 @@
 <c:forEach items="${names}" var="name"> 
 <p> Navn: ${name}</p>
 </c:forEach>
+<br>
   <p>
         <a href="yatzyServlet">Spill Yatzy</a>
     </p>

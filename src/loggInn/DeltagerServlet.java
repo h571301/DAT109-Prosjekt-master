@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.DeltagerDAO;
 
-@WebServlet("/Deltagere")
+@WebServlet("/DeltagerServlet")
 public class DeltagerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -22,14 +22,14 @@ public class DeltagerServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		
 		List<Deltager> studenter = dao.hentUtDeltagere();
-
+		
 		String[] names = new String[studenter.size()];
 
 		for (int i = 0; i < studenter.size(); i++) {
 			names[i] = studenter.get(i).getBrukernavn();
 		} 
-		System.out.println(studenter.get(1).getBrukernavn());
 
 		request.setAttribute("names", names);
 		request.getRequestDispatcher("WEB-INF/Deltager.jsp").forward(request, response);
