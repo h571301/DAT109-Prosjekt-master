@@ -3,7 +3,9 @@ package loggInn;
 import javax.servlet.http.HttpServletRequest;
 
 import dao.DeltagerDAO;
-
+/**
+ * @author Prosjektgrupe 4
+ */
 public class LoggInnSkjema {
 	
 	private String brukernavn;
@@ -16,11 +18,19 @@ public class LoggInnSkjema {
 		this.passord = request.getParameter("passord");
 	}
 	
+	/**
+	 * Feilmeding basert på om brukernavn og/eller passord er feil.
+	 */
 	public void feilMelding() {
 		brukernavn = "";
 		passord = "";
 		feilmelding = "Ugyldig brukernavn og/eller passord!";
 	}
+	/**
+	 * Sjekker om en allerede er innlogget.
+	 * @param dao
+	 * @return boolean basert på om en er innlogget.
+	 */
 	public boolean sjekkOmInnlogget(DeltagerDAO dao) {
 		if(!brukernavn.isEmpty() && dao.eksistererBrukernavn(brukernavn)) {
 			PassordUtil hash = new PassordUtil();
@@ -29,7 +39,9 @@ public class LoggInnSkjema {
 			return false;
 		}
 	}
-
+/*
+ * Getters og setters.
+ */
 	public String getBrukernavn() {
 		return brukernavn;
 	}

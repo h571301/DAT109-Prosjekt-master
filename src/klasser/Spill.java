@@ -12,7 +12,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
+/**
+ * @author Prosjektgrupe 4
+ */
 @Entity
 @Table(schema = "YatzyDB", name = "spill")
 public class Spill {
@@ -26,6 +28,10 @@ public class Spill {
 	
 	public Spill() {}
 	
+	
+	/*
+	 * Konstruktør, getters og setters.
+	 */
 	public Spill(int id, String navn) {
 		this.spillID = id;
 		this.navn = navn;
@@ -45,14 +51,26 @@ public class Spill {
 	public void setNavn(String navn) {
 		this.navn = navn;
 	}
-
+/**
+ * Legge til en spiler.
+ * @param spiller
+ */
 	public void leggTilSpiller(Spiller spiller) {
 		spillere.add(spiller);
 	}
-	
+	/**
+	 * Oppdatere en spiller med id.
+	 * @param id
+	 * @param spiller
+	 */
 	public void oppdaterSpiller(int id, Spiller spiller) {
 		spillere.set(id, spiller);
 	}
+	
+	/**
+	 * Gir oss en liste med topp 3 spillere.
+	 * @return Liste med de tre beste.
+	 */
 	public List<Spiller> finnTop3() {
 
 		List<Spiller> top = spillere;
@@ -61,7 +79,6 @@ public class Spill {
 		Collections.sort(top, (s1, s2) -> {
 			return s1.compareTo(s2);
 		});
-		
 		
 		
 		return top;

@@ -3,7 +3,9 @@ package klasser;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
-
+/**
+ * @author Prosjektgrupe 4
+ */
 @Entity
 @Table(schema = "DeltagerPU", name = "deltager")
 public class Deltager {
@@ -23,7 +25,9 @@ public class Deltager {
 	public Deltager() {
 
 	}
-
+/**
+ * Getters, setters og en toString().
+ */
 	public String getBrukernavn() {
 		return brukernavn;
 	}

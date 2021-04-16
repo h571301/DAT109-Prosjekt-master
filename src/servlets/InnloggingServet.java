@@ -17,7 +17,9 @@ import klasser.Deltager;
 import klasser.Poeng;
 import klasser.Spill;
 import klasser.Spiller;
-
+/**
+ * @author Prosjektgrupe 4
+ */
 /**
  * Servlet implementation class InnloggingServet
  */
@@ -27,37 +29,21 @@ public class InnloggingServet extends HttpServlet {
 
 	@EJB
 	private SpillDAO dao;
-	
+
 	@EJB
 	private DeltagerDAO daoDeltagere;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//request.getRequestDispatcher("WEB-INF/innlogging.html").forward(request, response);
-		
-		//dao.startDB();
-		
-		
-		//if (dao.finnesSpill(1)) // reset spill/slett spill
-		//	dao.slettSpill(1);
-		
-		List<Deltager> deltagere = daoDeltagere.hentUtDeltagere();
-		
-		
-		List<String> navn = new ArrayList<String>();
-//		navn.add(request.getParameter("player1"));
-//		navn.add(request.getParameter("player2"));
-//		navn.add(request.getParameter("player3"));
-//		navn.add(request.getParameter("player4"));
 
-		for(Deltager deltager : deltagere) {
+		List<Deltager> deltagere = daoDeltagere.hentUtDeltagere();
+		List<String> navn = new ArrayList<String>();
+
+		for (Deltager deltager : deltagere) {
 			navn.add(deltager.getBrukernavn());
 		}
-		
 		int x = 1;
-
 		Spill spill = new Spill(1, "Spill1");
-		
 		dao.lagreNyttSpill(spill);
 		try {
 			Thread.sleep(1000);
@@ -77,14 +63,11 @@ public class InnloggingServet extends HttpServlet {
 			x++;
 		}
 		response.sendRedirect("yatzyServlet");
-		
-		
 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-	
 
 	}
 

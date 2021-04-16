@@ -12,24 +12,42 @@ import klasser.Deltager;
 import klasser.Poeng;
 import klasser.Spill;
 import klasser.Spiller;
-
+/**
+ * @author Prosjektgrupe 4
+ */
 @Stateless
 public class SpillDAO {
 
 	@PersistenceContext(name = "YatzyPU")
 	private EntityManager em;
-
+/**
+ * Henter en liste med alle spill.
+ * @return Liste med alle spill.
+ */
 	public List<Spill> hentAlleSpill() {
 		return em.createQuery("SELECT s FROM Spill AS s", Spill.class).getResultList();
 	}
 
+	/**
+	 * Henter en liste med alle spillere.
+	 * @return Liste med alle spillere.
+	 */
 	public List<Spiller> hentAlleSpillere2() {
 		return em.createQuery("SELECT s FROM Spiller AS s", Spiller.class).getResultList();
 	}
+	
+	/**
+	 * Henter en liste med alle spillere når en bruker spillID.
+	 * @param spillID
+	 * @return Liste med alle spillere.
+	 */
 	public List<Spiller> hentAlleSpillere(int spillID) {
 		return em.find(Spill.class, spillID).getSpillere();
 	}
 
+	/*
+	 * Getters og setters.
+	 */
 	public Spiller hentBestemtSpiller(Object object) {
 		return em.find(Spiller.class, object);
 	}
@@ -50,6 +68,10 @@ public class SpillDAO {
 		em.merge(poeng);
 	}
 
+	/**
+	 * Oppdaterer spillet med et spill.
+	 * @param spill
+	 */
 	public void oppdaterSpill(Spill spill) {
 
 		List<Spiller> alleSpillere = spill.getSpillere();
@@ -59,19 +81,33 @@ public class SpillDAO {
 		em.merge(spill);
 	}
 
+	/**
+	 * Oppdaterer en spiller.
+	 * @param spiller
+	 */
 	public void oppdaterSpiller(Spiller spiller) {
 		em.merge(spiller);
 	}
-	
+	/**
+	 * Slett en spiller.
+	 * @param spiller
+	 */
 	public void slettSpiller(Spiller spiller) {
 		slettPoeng(spiller.getPoeng());
 		em.remove(spiller);
 	}
-	
+	/**
+	 * Slett poeng.
+	 * @param poeng
+	 */
 	public void slettPoeng(Poeng poeng) {
 		em.remove(poeng);
 	}
 
+	/**
+	 * Slett spill basert på spillID.
+	 * @param spillID
+	 */
 	public void slettSpill(int spillID) {
 		Spill spill = em.find(Spill.class, spillID);
 		List<Spiller> spillere = spill.getSpillere();
@@ -82,7 +118,11 @@ public class SpillDAO {
 		
 		em.remove(em.find(Spill.class, spillID));
 	}
-
+/**
+ * Hent et bestemt spill.
+ * @param spillID
+ * @return det bestemte spillet du ønsker.
+ */
 	public Spill hentBestemtSpill(int spillID) {
 		Spill s1 = em.find(Spill.class, spillID);
 		return s1;
@@ -95,7 +135,9 @@ public class SpillDAO {
 	}
 	
 
-	
+	/**
+	 * Sletter DB slik at en kan lage et nytt spill.
+	 */
 	public void slettDB() {
 		
 //		em.createQuery("DELETE FROM yatzydb.spill");

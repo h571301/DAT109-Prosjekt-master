@@ -20,6 +20,9 @@ import klasser.Spill;
 import klasser.Spiller;
 
 /**
+ * @author Prosjektgrupe 4
+ */
+/**
  * Servlet implementation class spilleServlet
  */
 
@@ -66,7 +69,7 @@ public class spilleServlet extends HttpServlet {
 					session.setAttribute("secondPlace", top.get(1).getNavn());
 				if (spillere.size() > 2)
 					session.setAttribute("thirdPlace", top.get(2).getNavn());
-				
+
 				dao.slettDB();
 
 				request.getRequestDispatcher("WEB-INF/resultat.jsp").forward(request, response);

@@ -10,7 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
+/**
+ * @author Prosjektgrupe 4
+ */
 @Entity
 @Table(schema = "YatzyDB", name = "poeng")
 public class Poeng {
@@ -51,7 +53,9 @@ public class Poeng {
 
 	public Poeng() {
 	}
-
+/*
+ * Konstruktør, getters and setters.
+ */
 	public Poeng(int poengId) {
 		this.poengID = poengId;
 		this.enere = -1;
@@ -157,7 +161,9 @@ public class Poeng {
         this.total = tot;
 
     }
-
+/**
+ * Legger sammen sum.
+ */
 	public void oppdaterSummer() {
 		this.summ = enere + toere + trere + firere + femmere + seksere;
 		this.total = summ + bonus + etPar + toPar + treLike + fireLike + litenStraight + storStraight + hus + sjanse
@@ -243,7 +249,10 @@ public class Poeng {
 	public int getTotal() {
 		return total;
 	}
-
+/**
+ * Lagre poeng i en liste.
+ * @return liste med poeng.
+ */
 	public List<Integer> lagrePoengSomListe() {
 		List<Integer> poengListe = new ArrayList<Integer>();
 		poengListe.add(enere);
@@ -266,12 +275,4 @@ public class Poeng {
 		return poengListe;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "Poeng [poengID=" + poengID + ", spiller=" + spiller + ", enere=" + enere + ", toere=" + toere
-//				+ ", trere=" + trere + ", firere=" + firere + ", femmere=" + femmere + ", seksere=" + seksere + ", sum="
-//				+ summ + ", bonus=" + bonus + ", etPar=" + etPar + ", toPar=" + toPar + ", treLike=" + treLike
-//				+ ", fireLike=" + fireLike + ", litenStraight=" + litenStraight + ", storStraight=" + storStraight
-//				+ ", hus=" + hus + ", sjanse=" + sjanse + ", yatzy=" + yatzy + ", total=" + total + "]";
-//	}
 }

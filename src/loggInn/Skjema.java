@@ -3,7 +3,9 @@ package loggInn;
 import javax.servlet.http.HttpServletRequest;
 
 import klasser.Deltager;
-
+/**
+ * @author Prosjektgrupe 4
+ */
 public class Skjema {
 
 	private String brukernavn;
@@ -21,28 +23,42 @@ public class Skjema {
 		this.feilmelding="";
 		v = new Validator();
 	}
-	
+	/**
+	 * Lager en deltaker.
+	 * @return en deltaker.
+	 */
 	public Deltager lagDeltager() {
 		PassordUtil hash = new PassordUtil();
 		passord = hash.krypterPassord(passord);
 		
 		return new Deltager(brukernavn, passord, epost);
 	}
+	/**
+	 * Sjekker om dataene i skjemaet er gyldig.
+	 * @return true/false om gyldig.
+	 */
 	public boolean erAllDataGyldig() {
 		return v.erBrukernavnGyldig(brukernavn) && v.erPassordGyldig(passord);
 	}
 	
+	/**
+	 * Gjemmer passord.
+	 */
 	public void gjemPassord() {
 		passord = "";
 		passordRepetert = "";
 	}
-	
+	/**
+	 * Setter feilmelding.
+	 */
 	public void setFeilmelding() {
 		if(!v.erBrukernavnGyldig(brukernavn)|| !v.erPassordGyldig(passord)) {
 			this.feilmelding= "Brukernavn/passord er ugyldig!";
 		}
 	}
-
+/**
+ * Getters og setters.
+ */
 	public String getBrukernavn() {
 		return brukernavn;
 	}

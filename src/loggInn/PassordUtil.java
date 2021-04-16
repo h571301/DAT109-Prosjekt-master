@@ -8,7 +8,9 @@ import java.util.Base64;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
-
+/**
+ * @author Prosjektgrupe 4
+ */
 public class PassordUtil {
 
 	private static final int SALT_LENGTH = 24;
@@ -18,6 +20,12 @@ public class PassordUtil {
 	private static final int KEY_LENGTH = 40;
 	private static final String SPRAAK ="UTF-8";
 	
+	/**
+	 * Magien som krypterer passordet.
+	 * @param passord
+	 * @return String som innehoder et kryptert og saltet passord.
+	 * @throws IllegalArgumentException
+	 */
 	public String krypterPassord(String passord) throws IllegalArgumentException {
     	if (passord == null || !passord.matches(VALID_PASSWORD_PATTERN)) {
     		throw new IllegalArgumentException("Ugyldig passord. Passordet mÃ¥ matche " + VALID_PASSWORD_PATTERN);
@@ -26,6 +34,12 @@ public class PassordUtil {
         return krypterMedSalt(salt, passord);
     }
 
+	/**
+	 * Sjekker om passordet er kryptert.
+	 * @param passord
+	 * @param kryptert
+	 * @return true/false basert på resultat.
+	 */
     public boolean sjekkPassord(String passord, String kryptert) {
     
         byte[] salt = hentUtSaltFraKryptertStreng(kryptert);
@@ -33,7 +47,12 @@ public class PassordUtil {
     }
     
     /*--- Private hjelpemetoder ---*/
-
+/**
+ * Utfører selve krypteringen med salt.
+ * @param salt
+ * @param password
+ * @return String med ferdig kryptert.
+ */
 	public String krypterMedSalt(byte[] salt, String password) {
 		
 		String kryptert = null;
@@ -56,7 +75,10 @@ public class PassordUtil {
         return kryptert;
 		
 	}
-
+/**
+ * Genererer en tilfeldig salt.
+ * @return
+ */
     public byte[] genererTilfeldigSalt() {
         byte[] salt = new byte[SALT_LENGTH];
         // https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#SecureRandom
@@ -65,13 +87,22 @@ public class PassordUtil {
 //        System.out.println("Tilfeldig salt = " + Base64.getEncoder().encodeToString(salt));
         return salt;
     }
-
+/**
+ * Henter ut salt fra en kryptert streng.
+ * @param kryptert
+ * @return byte array med salt.
+ */
     private byte[] hentUtSaltFraKryptertStreng(String kryptert) {
         byte[] saltPlusDigest = Base64.getDecoder().decode(kryptert);
         byte[] salt = Arrays.copyOf(saltPlusDigest, SALT_LENGTH);
         return salt;
     }
-    
+    /**
+     * Legger sammen to byte arrays
+     * @param tabell1
+     * @param tabell2
+     * @return et sammenslått byte array.
+     */
     private byte[] leggSammen(byte[] tabell1, byte[] tabell2) {
         byte[] enOgTo = new byte[tabell1.length + tabell2.length];
         System.arraycopy(tabell1, 0, enOgTo, 0, tabell1.length);

@@ -10,7 +10,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * @author Prosjektgrupe 4
+ */
 @Entity
 @Table(schema = "YatzyDB", name = "spiller")
 public class Spiller {
@@ -70,7 +72,11 @@ public class Spiller {
 		System.out.println(poeng.toString());
 
 	}
-
+/**
+ * Oppdaterer score via databasen.
+ * @param request
+ * @param response
+ */
 	public void oppdaterScore(HttpServletRequest request, HttpServletResponse response) {
 
 		Integer x = 1;
@@ -126,7 +132,11 @@ public class Spiller {
 
 //		printScore();
 	}
-	
+	/**
+	 * Gjennomfører en compareTo på en spiller.
+	 * @param s1
+	 * @return verdi basert på spillerens poeng. 
+	 */
 	public int compareTo(Spiller s1) {
 		Integer spillerPoeng = poeng.getTotal();
 		Integer s1Poeng = s1.poeng.getTotal();
@@ -135,7 +145,6 @@ public class Spiller {
 	}
 	
 	
-
 	@Override
 	public String toString() {
 		return "Spiller [spillerID=" + spillerID + ", navn=" + navn + ", spill=" + spill + ", poeng=" + poeng + "]";

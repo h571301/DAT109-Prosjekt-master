@@ -14,7 +14,9 @@ import javax.servlet.http.HttpSession;
 
 import dao.DeltagerDAO;
 import klasser.Deltager;
-
+/**
+ * @author Prosjektgrupe 4
+ */
 @WebServlet("/Deltagere")
 public class DeltagerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

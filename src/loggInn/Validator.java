@@ -1,6 +1,8 @@
 package loggInn;
 
-
+/**
+ * @author Prosjektgrupe 4
+ */
 public class Validator {
 
     public static final String ANY_LETTER = "[a-zA-ZæøåÆØÅ]";
@@ -13,8 +15,8 @@ public class Validator {
      * @param username Brukernavnet som skal valideres
      * @return Om brukenavnet er gyldig eller ikke
      * 
-     *         Et gyldig brukernavn består av 4 eller flere tegn. Lovlige tegn
-     *         er bokstaver (små og store) inkl. de norske bokstavene, og tall.
+     *         Et gyldig brukernavn bestaar av 4 eller flere tegn. Lovlige tegn
+     *         er bokstaver (smaa og store) inkl. de norske bokstavene, og tall.
      *         Brukernavnet kan ikke begynne med et tall.
      */
     public static boolean erBrukernavnGyldig(String brukernavn) {
