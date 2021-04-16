@@ -145,17 +145,18 @@ public class Poeng {
 	}
 
 	public void setTotal() {
-		List<Integer> poengListe = lagrePoengSomListe();
-		int tot = 0;
-		for (Integer i : poengListe) {
-			if (i > -1)
-				tot += i;
-		}
-		if (tot != -1)
-			tot = tot - this.total;
-		this.total = tot;
+        this.total = -1;
+        List<Integer> poengListe = lagrePoengSomListe();
+        int tot = 0;
 
-	}
+        for (Integer i : poengListe) {
+            if (i > 0)
+                tot += i;
+        }
+
+        this.total = tot;
+
+    }
 
 	public void oppdaterSummer() {
 		this.summ = enere + toere + trere + firere + femmere + seksere;
